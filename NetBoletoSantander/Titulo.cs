@@ -1,31 +1,74 @@
 ﻿using System;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace NetBoletoSantander
 {
     public class Titulo
     {
-        public double Valor { get; private set; }
-        public string NossoNumero { get; private set; }
-        public string SeuNumero { get; private set; }
-        public DateTime DataVencimento { get; private set; }
-        public string Mensagem { get; private set; }
-        public DateTime DataEmissao { get; private set; }
-        public int Especie { get; private set; }
-        public InstrucoesDeTitulo InstrucoesDeTitulo { get; private set; }
+        public double Valor { get; }
+        public string NossoNumero { get; }
+        public string SeuNumero { get; }
+        public DateTime DataVencimento { get; }
+        public string Mensagem { get; }
+        public DateTime DataEmissao { get; }
+        public Especie Especie { get; }
+        public InstrucoesDoTitulo InstrucoesDoTitulo { get; }
 
-        public Titulo(double valor, string nossoNumero, string seuNumero, string mensagem, int especie,
-            InstrucoesDeTitulo instrucoesDeTitulo, DateTime dataVencimento = new DateTime(),
-            DateTime dataEmissao = new DateTime())
+        public Titulo(double valor, Especie especie, string nossoNumero, string seuNumero, DateTime dataVencimento,
+            DateTime dataEmissao, bool digitoVerificador = true)
         {
             Valor = valor;
-            NossoNumero = nossoNumero + CalcularDigitoVerificador(nossoNumero);
+            Especie = especie;
+            NossoNumero = nossoNumero + (digitoVerificador ? CalcularDigitoVerificador(nossoNumero).ToString() : "");
             SeuNumero = seuNumero;
             DataVencimento = dataVencimento;
-            Mensagem = mensagem;
             DataEmissao = dataEmissao;
+            
+            Validar();
+        }
+
+        public Titulo(double valor, Especie especie, string nossoNumero, string seuNumero, DateTime dataVencimento,
+            DateTime dataEmissao, string mensagem, bool digitoVerificador = true)
+        {
+            Valor = valor;
             Especie = especie;
-            InstrucoesDeTitulo = instrucoesDeTitulo;
+            NossoNumero = nossoNumero + (digitoVerificador ? CalcularDigitoVerificador(nossoNumero).ToString() : "");
+            SeuNumero = seuNumero;
+            DataVencimento = dataVencimento;
+            DataEmissao = dataEmissao;
+            Mensagem = mensagem;
+            
+            Validar();
+        }
+
+        public Titulo(double valor, Especie especie, string nossoNumero, string seuNumero, DateTime dataVencimento, 
+            DateTime dataEmissao, InstrucoesDoTitulo instrucoesDoTitulo, bool digitoVerificador = true)
+        {
+            Valor = valor;
+            Especie = especie;
+            NossoNumero = nossoNumero + (digitoVerificador ? CalcularDigitoVerificador(nossoNumero).ToString() : "");
+            SeuNumero = seuNumero;
+            DataVencimento = dataVencimento;
+            DataEmissao = dataEmissao;
+            InstrucoesDoTitulo = instrucoesDoTitulo;
+            
+            Validar();
+        }
+
+        public Titulo(double valor, Especie especie, string nossoNumero, string seuNumero, DateTime dataVencimento, 
+            DateTime dataEmissao, string mensagem, InstrucoesDoTitulo instrucoesDoTitulo, bool digitoVerificador = true)
+        {
+            Valor = valor;
+            Especie = especie;
+            NossoNumero = nossoNumero + (digitoVerificador ? CalcularDigitoVerificador(nossoNumero).ToString() : "");
+            SeuNumero = seuNumero;
+            DataVencimento = dataVencimento;
+            DataEmissao = dataEmissao;
+            Mensagem = mensagem;
+            InstrucoesDoTitulo = instrucoesDoTitulo;
+            
+            Validar();
         }
         
         private int CalcularDigitoVerificador(string nossoNumero) {
@@ -49,6 +92,24 @@ namespace NetBoletoSantander
             }
             
             return digito;
+        }
+
+        private void Validar()
+        {
+            if (NossoNumero.Length == 0 || NossoNumero.Equals("0"))
+                throw new ArgumentException("Não poder ser uma string vazia.", "NossoNumero");
+            
+            if (NossoNumero.Length > 14)
+                throw new ArgumentException("Não poder ter mais que 14 caracteres.", "NossoNumero");
+            
+            if (!Regex.IsMatch(NossoNumero, @"^[0-9]*$"))
+                throw new ArgumentException("Deve possuir apenas números.", "NossoNumero");
+            
+            if (SeuNumero.Length == 0)
+                throw new ArgumentException("Não poder ser uma string vazia.", "SeuNumero");
+            
+            if (SeuNumero.Length > 15)
+                throw new ArgumentException("Não poder ter mais que 15 caracteres.", "SeuNumero");
         }
     }
 }

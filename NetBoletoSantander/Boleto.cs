@@ -2,9 +2,9 @@
 {
     public class Boleto
     {
-        public Convenio Convenio { get; private set; }
-        public Pagador Pagador { get; private set; }
-        public Titulo Titulo { get; private set; }
+        public Convenio Convenio { get; }
+        public Pagador Pagador { get; }
+        public Titulo Titulo { get; }
 
         public Boleto(Convenio convenio, Pagador pagador, Titulo titulo)
         {

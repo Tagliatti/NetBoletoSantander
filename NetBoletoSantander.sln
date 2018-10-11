@@ -2,6 +2,12 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetBoletoSantander", "NetBoletoSantander\NetBoletoSantander.csproj", "{831B0E13-EA02-4DBB-8B1C-8A4D1FD8B59C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3F4D5131-D4CC-4B2C-9228-B84F59C83081}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{705DC677-9B81-443C-B405-E3B0D457DF80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetBoletoSantander.Test", "NetBoletoSantander.Test\NetBoletoSantander.Test.csproj", "{648B20A2-B411-4E6E-9722-8353429097F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +18,13 @@ Global
 		{831B0E13-EA02-4DBB-8B1C-8A4D1FD8B59C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{831B0E13-EA02-4DBB-8B1C-8A4D1FD8B59C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{831B0E13-EA02-4DBB-8B1C-8A4D1FD8B59C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{648B20A2-B411-4E6E-9722-8353429097F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{648B20A2-B411-4E6E-9722-8353429097F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{648B20A2-B411-4E6E-9722-8353429097F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{648B20A2-B411-4E6E-9722-8353429097F5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{831B0E13-EA02-4DBB-8B1C-8A4D1FD8B59C} = {3F4D5131-D4CC-4B2C-9228-B84F59C83081}
+		{648B20A2-B411-4E6E-9722-8353429097F5} = {705DC677-9B81-443C-B405-E3B0D457DF80}
 	EndGlobalSection
 EndGlobal

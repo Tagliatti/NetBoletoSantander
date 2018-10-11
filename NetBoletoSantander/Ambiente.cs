@@ -4,9 +4,7 @@ namespace NetBoletoSantander
 {
     public enum Ambiente
     {
-        [Description("T")]
-        Teste,
-        [Description("P")]
-        Producao
+        Teste = 0,
+        Producao = 1,
     }
 }
