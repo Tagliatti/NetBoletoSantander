@@ -1,5 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <NeutralLanguage>pt-BR</NeutralLanguage>
+    <Authors>Filipe Tagliatti</Authors>
+    <PackageTags>boleto, santander, registro boleto</PackageTags>
+    <Company />
+    <Product />
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>Lib para registro de boletos online no banco Santander desenvolvido em .NET Core, compatível com .NET Standard 2.0 ou superior.</Description>
+    <PackageProjectUrl>https://github.com/Tagliatti/NetBoletoSantander</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/Tagliatti/NetBoletoSantander/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageIconUrl>https://i.imgur.com/Wbxjyit.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/Tagliatti/NetBoletoSantander</RepositoryUrl>
+    <Copyright>Filipe Tagliatti</Copyright>
   </PropertyGroup>
 </Project>
