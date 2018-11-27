@@ -8,7 +8,7 @@ PM> Install-Package NetBoletoSantander
 ```
 .NET CLI
 ```
-> dotnet add package Newtonsoft.Json
+> dotnet add package NetBoletoSantander
 ```
 
 ## Uso
